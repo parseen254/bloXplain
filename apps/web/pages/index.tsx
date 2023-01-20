@@ -2,8 +2,8 @@ import { Button } from "ui";
 
 export default function Web() {
   return (
-    <div className="w-full min-h-screen flex justify-center items-center">
-      <h1 className="text-3xl font-bold underline">bloXplain</h1>
+    <div className="w-full min-h-screen flex flex-col gap-4 justify-center items-center">
+      <Button />
     </div>
   );
 }
