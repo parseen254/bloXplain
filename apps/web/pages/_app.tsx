@@ -18,7 +18,7 @@ const hyperSpaceChain: Chain & { iconUrl: string; iconBackground: string } = {
   nativeCurrency: {
     decimals: 18,
     name: "FILECOIN",
-    symbol: "fTIL",
+    symbol: "tFIL",
   },
   rpcUrls: {
     default: {
