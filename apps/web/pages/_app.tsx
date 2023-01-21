@@ -1,11 +1,11 @@
 import "../styles/global.css";
 import "@rainbow-me/rainbowkit/styles.css";
 
+import { Chain, mainnet } from "wagmi/chains";
 import { RainbowKitProvider, getDefaultWallets } from "@rainbow-me/rainbowkit";
 import { WagmiConfig, configureChains, createClient } from "wagmi";
 
 import type { AppProps } from "next/app";
-import { Chain } from "wagmi/chains";
 import { NavBar } from "ui";
 import { publicProvider } from "wagmi/providers/public";
 
@@ -34,7 +34,7 @@ const hyperSpaceChain: Chain & { iconUrl: string; iconBackground: string } = {
   testnet: true,
 };
 const { chains, provider } = configureChains(
-  [hyperSpaceChain],
+  [hyperSpaceChain, mainnet],
   [publicProvider()]
 );
 
