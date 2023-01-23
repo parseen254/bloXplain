@@ -54,7 +54,7 @@ export default function Web() {
             <RightSideSection />
           </div>
         </section>
-        
+
       </div>
     </div>
   );
