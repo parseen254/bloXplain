@@ -70,7 +70,7 @@ export function TransactionsExplorer() {
                 <dd className="mt-1 flex text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                 <span className="flex-grow">
                     Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepte
-                    
+
                 </span>
                 <span className="ml-4 flex-shrink-0">
                     <button
