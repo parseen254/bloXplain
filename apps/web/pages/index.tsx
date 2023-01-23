@@ -1,6 +1,7 @@
 import { MagnifyingGlassIcon, QueueListIcon } from "@heroicons/react/20/solid";
 
 import { RightSideSection } from "ui";
+import { TransactionsExplorer } from "ui/components/TransactionsExplorer";
 
 export default function Web() {
   return (
@@ -45,10 +46,15 @@ export default function Web() {
             </div>
           </div>
         </div>
-        <section className="flex">
-          <div className="flex-1"></div>
-          <RightSideSection />
+        <section className="flex justify-evenly space-x-1">
+          <div className="flex-1 w-3">
+            <TransactionsExplorer />
+            </div>
+          <div className="flex-1 w-3">
+            <RightSideSection />
+          </div>
         </section>
+        
       </div>
     </div>
   );
