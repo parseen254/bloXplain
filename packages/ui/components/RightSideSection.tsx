@@ -24,7 +24,7 @@ function classNames(...classes: string[]) {
 
 export function RightSideSection() {
   return (
-    <div className="flex-1 border-2 border-gray-400 rounded-xl border-dashed border-b-0">
+    <div className="flex-1 border-2 border-gray-400 rounded-t-xl border-dashed border-b-0 h-full ">
       <div className="sm:hidden">
         <label htmlFor="tabs" className="sr-only">
           Select a tab
