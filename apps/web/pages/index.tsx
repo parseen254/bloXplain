@@ -4,8 +4,8 @@ import { RightSideSection } from "ui";
 
 export default function Web() {
   return (
-    <div className="bg-gray-200">
-      <div className="mx-auto max-w-7xl py-16 px-6 sm:py-24 lg:px-8 bg-indigo-100">
+    <>
+      <div className="mx-auto max-w-7xl py-16 px-6 sm:py-24 lg:px-8 border-2 border-gray-400 border-dashed rounded-t-xl border-b-0 mb-8">
         <div className="text-center">
           <p className="mt-1 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
             Welcome to bloXplain
@@ -28,13 +28,13 @@ export default function Web() {
                   type="text"
                   name="transaction_id"
                   id="tx_id"
-                  className="block w-full rounded-none rounded-l-md border-gray-300 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  className="block w-full rounded-none rounded-l-md border-gray-300 border-dashed pl-10 focus:border-gray-500 focus:ring-gray-500 sm:text-sm"
                   placeholder="Enter Transaction ID"
                 />
               </div>
               <button
                 type="button"
-                className="relative -ml-px inline-flex items-center space-x-2 rounded-r-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                className="relative -ml-px inline-flex items-center space-x-2 rounded-r-md border border-dashed  border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500"
               >
                 <MagnifyingGlassIcon
                   className="h-5 w-5 text-gray-400"
@@ -50,6 +50,6 @@ export default function Web() {
           <RightSideSection />
         </section>
       </div>
-    </div>
+    </>
   );
 }

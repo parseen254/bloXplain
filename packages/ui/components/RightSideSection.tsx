@@ -24,7 +24,7 @@ function classNames(...classes: string[]) {
 
 export function RightSideSection() {
   return (
-    <div className="flex-1">
+    <div className="flex-1 border-2 border-gray-400 rounded-xl border-dashed border-b-0">
       <div className="sm:hidden">
         <label htmlFor="tabs" className="sr-only">
           Select a tab
@@ -33,7 +33,7 @@ export function RightSideSection() {
         <select
           id="tabs"
           name="tabs"
-          className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+          className="block w-full rounded-md border-gray-300 focus:border-gray-500 focus:ring-gray-500"
           defaultValue={tabs.find((tab) => tab.current)!.name}
         >
           {tabs.map((tab) => (
@@ -64,7 +64,7 @@ export function RightSideSection() {
               <span
                 aria-hidden="true"
                 className={classNames(
-                  tab.current ? "bg-indigo-500" : "bg-transparent",
+                  tab.current ? "bg-gray-500" : "bg-transparent",
                   "absolute inset-x-0 bottom-0 h-0.5"
                 )}
               />
