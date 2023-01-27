@@ -1,6 +1,29 @@
 import { PaperClipIcon } from "@heroicons/react/20/solid";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-export function TransactionsExplorer() {
+const TransactionsExplorer: React.FC = () => {
+  const [data, setData] = useState<Data | null>(null);
+  const [error, setError] = useState<Error | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // use a proxy server to avoid CORS error
+        const proxyUrl = 'https://bloXplain-cors-anywhere.herokuapp.com/';
+        const targetUrl = 'https://hyperspace.filfox.info/api/v1/message/bafy2bzacedmft62yzb2hncxzcb5pperubpjkbc6y5lzm7h2dxn67gfhzhbvbk';
+        const response = await axios.get(proxyUrl + targetUrl);
+        setData(response.data);
+      } catch (err) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="flex-1 border-2 border-gray-400 rounded-t-xl border-dashed border-b-0 p-4">
       <div>
@@ -12,12 +35,13 @@ export function TransactionsExplorer() {
         </p>
       </div>
       <div className="mt-5 border-t border-gray-200">
+      {data && (
         <dl className="divide-y divide-gray-200">
           <div className="flex py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5">
             <dt className="text-sm font-medium text-gray-500">Address to</dt>
             <dd className="mt-1 flex text-sm text-gray-900 sm:col-span-2 sm:mt-0">
               <span className="flex">
-                safiuvadvg983yr7843ewh938q93u9r08473we9fh
+                {data.cid}
               </span>
             </dd>
           </div>
@@ -25,23 +49,24 @@ export function TransactionsExplorer() {
             <dt className="text-sm font-medium text-gray-500">Address from</dt>
             <dd className="mt-1 flex text-sm text-gray-900 sm:col-span-2 sm:mt-0">
               <span className="flex-grow">
-                fioefouap9fj38ywe89r748erq9hf8wgr89w9eyuhfu
+                {data.from}
               </span>
             </dd>
           </div>
           <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5">
-            <dt className="text-sm font-medium text-gray-500">Message</dt>
+            <dt className="text-sm font-medium text-gray-500">Timestamp</dt>
             <dd className="mt-1 flex text-sm text-gray-900 sm:col-span-2 sm:mt-0">
               <span className="flex-grow">
-                ncoefihelafjkjalkfiukafkjds vc iauefnkaslnf lkd vuaweudfjaondk a
-                njajkdjfunanfdsnj
+                {data.timestamp}
               </span>
             </dd>
           </div>
           <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5">
             <dt className="text-sm font-medium text-gray-500">Block Height</dt>
             <dd className="mt-1 flex text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-              <span className="flex-grow">120700</span>
+                <span className="flex-grow">
+                  {data.height}
+                </span>
             </dd>
           </div>
           <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5">
@@ -50,13 +75,12 @@ export function TransactionsExplorer() {
             </dt>
             <dd className="mt-1 flex text-sm text-gray-900 sm:col-span-2 sm:mt-0">
               <span className="flex-grow">
-                Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
-                incididunt cillum culpa consequat. Excepte
+                {data.storagePower}
               </span>
             </dd>
           </div>
           <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-5">
-            <dt className="text-sm font-medium text-gray-500">Total Token</dt>
+            <dt className="text-sm font-medium text-gray-500">Miner</dt>
             <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
               <ul
                 role="list"
@@ -69,7 +93,7 @@ export function TransactionsExplorer() {
                       aria-hidden="true"
                     />
                     <span className="ml-2 w-0 flex-1 truncate">
-                      Topic Value
+                        {data.toActor}
                     </span>
                   </div>
                   <div className="ml-4 flex flex-shrink-0 space-x-4">
@@ -121,8 +145,10 @@ export function TransactionsExplorer() {
               </ul>
             </dd>
           </div>
-        </dl>
+          </dl>
+          )}
       </div>
     </div>
   );
 }
+export default TransactionsExplorer;
