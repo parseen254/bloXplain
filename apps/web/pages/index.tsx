@@ -1,7 +1,6 @@
 import { MagnifyingGlassIcon, QueueListIcon } from "@heroicons/react/20/solid";
-
 import { RightSideSection } from "ui";
-import { TransactionsExplorer } from "ui/components/TransactionsExplorer";
+import  TransactionsExplorer  from "ui/components/TransactionsExplorer";
 
 export default function Web() {
   return (
