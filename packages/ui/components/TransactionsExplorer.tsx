@@ -1,11 +1,15 @@
 import { PaperClipIcon } from "@heroicons/react/20/solid";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import  Data  from '../../interface/types';
 
-const TransactionsExplorer: React.FC = () => {
-  const [data, setData] = useState<Data | null>(null);
-  const [error, setError] = useState<Error | null>(null);
-  const [loading, setLoading] = useState(true);
+
+
+  const TransactionsExplorer: React.FC = () => {
+    const [data, setData] = useState<Data | null>(null);
+    const [error, setError] = useState<Error | null>(null);
+    const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -75,7 +79,7 @@ const TransactionsExplorer: React.FC = () => {
             </dt>
             <dd className="mt-1 flex text-sm text-gray-900 sm:col-span-2 sm:mt-0">
               <span className="flex-grow">
-                {data.storagePower}
+                {data.StoragePower}
               </span>
             </dd>
           </div>
