@@ -8,16 +8,16 @@ import Data from '../../../packages/interface/types';
 
 
 
+
 export default function Web() {
 
   const DEFAULT_TX_HASH = 'bafy2bzacedmft62yzb2hncxzcb5pperubpjkbc6y5lzm7h2dxn67gfhzhbvbk';
 
 
-
   let [txHash, setTxHash] = useState(DEFAULT_TX_HASH);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  let [data, setData] = useState("string");
+  let [data, setData] = useState<Data>();
 
   const handleSubmit = async (event: { preventDefault: () => void; }) => {
     event.preventDefault();
