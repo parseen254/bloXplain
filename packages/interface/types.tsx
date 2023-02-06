@@ -14,6 +14,13 @@ interface Data {
     version: string;
     StoragePower: number;
     toActor: string;
+    fromActor: string;
+    confirmations: number;
+    gasUsed: number;
+    value: string;
+    status: string;
+   
+
 }
 
 interface Error { 
